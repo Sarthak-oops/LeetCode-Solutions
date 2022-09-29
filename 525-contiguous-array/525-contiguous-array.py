@@ -14,6 +14,7 @@ class Solution:
         for i in range(len(ps)):
             if ps[i] not in d:
                 d[ps[i]]=i
+        print(d)
         for i in range(len(ps)):
             if ps[i] in d:
                 m1=i-d[ps[i]]
