@@ -10,10 +10,12 @@ class Solution:
         def traversal(root):
             if root==None:
                 return
-            a.append(root.val)
             traversal(root.left)
+            a.append(root.val)
+            
             traversal(root.right)
         traversal(root1)
         traversal(root2)
+        print(a)
         a.sort()
         return a
