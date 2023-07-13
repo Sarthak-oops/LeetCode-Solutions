@@ -7,15 +7,36 @@
 class Solution:
     def getAllElements(self, root1: TreeNode, root2: TreeNode) -> List[int]:
         a=[]
-        def traversal(root):
+        b=[]
+        def traversal(root,l):
             if root==None:
                 return
-            traversal(root.left)
-            a.append(root.val)
+            traversal(root.left,l)
+            l.append(root.val)
             
-            traversal(root.right)
-        traversal(root1)
-        traversal(root2)
+            traversal(root.right,l)
+        traversal(root1,a)
+        traversal(root2,b)
+        s1,s2=0,0
         print(a)
-        a.sort()
-        return a
+        print(b)
+        li=[]
+        e1=len(a)-1
+        e2=len(b)-1
+        while(s1<=e1 and s2<=e2):
+            if a[s1]<=b[s2]:
+                li.append(a[s1])
+                s1+=1
+            else:
+                li.append(b[s2])
+                s2+=1
+        if(s1>e1):
+            while(s2<=e2):
+                li.append(b[s2])
+                s2+=1
+        else:
+            while(s1<=e1):
+                li.append(a[s1])
+                s1+=1
+                
+        return li
