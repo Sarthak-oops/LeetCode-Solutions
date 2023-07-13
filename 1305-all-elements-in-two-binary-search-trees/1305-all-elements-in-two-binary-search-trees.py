@@ -30,13 +30,6 @@ class Solution:
             else:
                 li.append(b[s2])
                 s2+=1
-        if(s1>e1):
-            while(s2<=e2):
-                li.append(b[s2])
-                s2+=1
-        else:
-            while(s1<=e1):
-                li.append(a[s1])
-                s1+=1
-                
+        li.extend(a[s1:])
+        li.extend(b[s2:])
         return li
